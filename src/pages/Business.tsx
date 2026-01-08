@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { Check, Banknote, Layers, Clock, ExternalLink, Shield, Palette } from "lucide-react";
+import jumiaLogo from "@/assets/jumia-delivery-logo.jpg";
 
 const Business = () => {
   const { toast } = useToast();
@@ -21,12 +22,10 @@ const Business = () => {
       <nav className="bg-card shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
-            <div className="flex items-center gap-2">
-              <Link to="/" className="text-2xl font-black tracking-tighter flex items-center">
-                <span className="text-foreground">JUMIA</span>
-                <span className="bg-primary text-primary-foreground rounded-full w-6 h-6 flex items-center justify-center ml-1 text-sm">★</span>
+            <div className="flex items-center">
+              <Link to="/">
+                <img src={jumiaLogo} alt="Jumia Delivery" className="h-10" />
               </Link>
-              <span className="text-muted-foreground font-medium text-lg border-l border-border pl-2 ml-2">Delivery</span>
             </div>
             <div className="hidden md:flex space-x-8">
               <Link to="/" className="text-muted-foreground hover:text-primary transition">Personal (C2C)</Link>
@@ -212,52 +211,54 @@ const Business = () => {
       </div>
 
       {/* Integration Section */}
-      <div id="integration" className="bg-jumia-dark py-16 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
-          <div className="md:w-1/2">
-            <span className="text-primary font-bold uppercase tracking-wide text-sm">For Developers & Tech Teams</span>
-            <h2 className="text-3xl font-extrabold mt-2 mb-4">Seamless API Integration</h2>
-            <p className="text-gray-300 text-lg mb-6">
-              Connect your e-commerce store directly to Jumia Delivery. Automate order creation, retrieve shipping rates, and fetch tracking updates without leaving your system.
-            </p>
-            <ul className="space-y-3 mb-8">
-              <li className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-green-400" />
-                <span>RESTful API Architecture</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-green-400" />
-                <span>Webhooks for Delivery Status</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-green-400" />
-                <span>Sandbox Environment for Testing</span>
-              </li>
-            </ul>
-            <a href="#" className="text-white border border-gray-600 px-6 py-3 rounded hover:bg-gray-800 transition inline-block">
-              View API Documentation
-            </a>
-          </div>
-          <div className="md:w-1/2 bg-gray-800 rounded-lg p-6 font-mono text-sm text-green-400 shadow-2xl border border-gray-700 w-full overflow-hidden">
-            <div className="flex gap-2 mb-4 border-b border-gray-700 pb-2">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+      <div id="integration" className="bg-[#1a1a2e] py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="text-gray-400 font-bold uppercase tracking-wider text-xs">For Developers & Tech Teams</span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-primary mt-3 mb-6">Seamless API Integration</h2>
+              <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+                Connect your e-commerce store directly to Jumia Delivery. Automate order creation, retrieve shipping rates, and fetch tracking updates without leaving your system.
+              </p>
+              <ul className="space-y-4 mb-10">
+                <li className="flex items-center gap-3 text-white">
+                  <Check className="w-5 h-5 text-primary" />
+                  <span className="font-medium">RESTful API Architecture</span>
+                </li>
+                <li className="flex items-center gap-3 text-white">
+                  <Check className="w-5 h-5 text-primary" />
+                  <span className="font-medium">Webhooks for Delivery Status</span>
+                </li>
+                <li className="flex items-center gap-3 text-white">
+                  <Check className="w-5 h-5 text-primary" />
+                  <span className="font-medium">Sandbox Environment for Testing</span>
+                </li>
+              </ul>
+              <a href="#" className="inline-block text-white border border-gray-600 px-8 py-3 rounded font-medium hover:bg-white/5 transition">
+                View API Documentation
+              </a>
             </div>
-            <p className="text-gray-500"># Create a shipment via API</p>
-            <p><span className="text-purple-400">POST</span> /api/v1/shipments</p>
-            <p>{"{"}</p>
-            <p className="pl-4">"recipient": {"{"}</p>
-            <p className="pl-8">"name": "Ibrahim Musa",</p>
-            <p className="pl-8">"phone": "+23480...",</p>
-            <p className="pl-8">"city": "Lagos"</p>
-            <p className="pl-4">{"}"},</p>
-            <p className="pl-4">"package": {"{"}</p>
-            <p className="pl-8">"weight": 2.5,</p>
-            <p className="pl-8">"cod_amount": 15000</p>
-            <p className="pl-4">{"}"}</p>
-            <p>{"}"}</p>
-            <p className="mt-4 text-white">Status: <span className="text-green-400">201 Created</span></p>
+            <div className="bg-[#0d0d1a] rounded-lg p-6 font-mono text-sm shadow-2xl border border-gray-800">
+              <div className="flex gap-2 mb-6">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              </div>
+              <div className="text-gray-500 mb-2"># Create a shipment via API</div>
+              <div className="text-primary mb-2">POST <span className="text-gray-300">/api/v1/shipments</span></div>
+              <div className="text-gray-300">{"{"}</div>
+              <div className="text-gray-300 pl-4">"recipient": {"{"}</div>
+              <div className="text-primary pl-8">"name": <span className="text-green-400">"Ibrahim Musa"</span>,</div>
+              <div className="text-primary pl-8">"phone": <span className="text-green-400">"+23480..."</span>,</div>
+              <div className="text-primary pl-8">"city": <span className="text-green-400">"Lagos"</span></div>
+              <div className="text-gray-300 pl-4">{"}"},</div>
+              <div className="text-gray-300 pl-4">"package": {"{"}</div>
+              <div className="text-primary pl-8">"weight": <span className="text-purple-400">2.5</span>,</div>
+              <div className="text-primary pl-8">"cod_amount": <span className="text-purple-400">15000</span></div>
+              <div className="text-gray-300 pl-4">{"}"}</div>
+              <div className="text-gray-300">{"}"}</div>
+              <div className="mt-6 text-gray-400">Status: <span className="text-green-400">201 Created</span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -288,36 +289,38 @@ const Business = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-jumia-dark text-gray-400 py-12">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h3 className="text-white font-bold mb-4 uppercase text-sm tracking-wider">About Jumia Delivery</h3>
-            <p className="text-sm leading-relaxed">Helping businesses grow through reliable logistics infrastructure across Africa.</p>
-          </div>
-          <div>
-            <h3 className="text-white font-bold mb-4 uppercase text-sm tracking-wider">Business Solutions</h3>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white">Rate Card</a></li>
-              <li><a href="#" className="hover:text-white">API Docs</a></li>
-              <li><a href="#" className="hover:text-white">Bulk Shipping Tool</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-white font-bold mb-4 uppercase text-sm tracking-wider">Support</h3>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white">Help Center</a></li>
-              <li><a href="#" className="hover:text-white">Contact Sales</a></li>
-              <li><a href="#" className="hover:text-white">Report Issue</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-white font-bold mb-4 uppercase text-sm tracking-wider">Connect</h3>
-            <div className="flex space-x-4">
-              <div className="w-8 h-8 bg-gray-700 rounded-full"></div>
-              <div className="w-8 h-8 bg-gray-700 rounded-full"></div>
-              <div className="w-8 h-8 bg-gray-700 rounded-full"></div>
+      <footer className="bg-[#1a1a2e] py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-gray-400 font-bold mb-4 uppercase text-xs tracking-wider">About Jumia Delivery</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">Helping businesses grow through reliable logistics infrastructure across Africa.</p>
             </div>
-            <p className="text-xs mt-4">© 2025 Jumia. All rights reserved.</p>
+            <div>
+              <h3 className="text-gray-400 font-bold mb-4 uppercase text-xs tracking-wider">Business Solutions</h3>
+              <ul className="space-y-3 text-sm">
+                <li><a href="#" className="text-gray-500 hover:text-gray-300 transition">Rate Card</a></li>
+                <li><a href="#" className="text-gray-500 hover:text-gray-300 transition">API Docs</a></li>
+                <li><a href="#" className="text-gray-500 hover:text-gray-300 transition">Bulk Shipping Tool</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-gray-400 font-bold mb-4 uppercase text-xs tracking-wider">Support</h3>
+              <ul className="space-y-3 text-sm">
+                <li><a href="#" className="text-gray-500 hover:text-gray-300 transition">Help Center</a></li>
+                <li><a href="#" className="text-gray-500 hover:text-gray-300 transition">Contact Sales</a></li>
+                <li><a href="#" className="text-gray-500 hover:text-gray-300 transition">Report Issue</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-gray-400 font-bold mb-4 uppercase text-xs tracking-wider">Connect</h3>
+              <div className="flex space-x-3 mb-4">
+                <div className="w-10 h-10 bg-gray-700 rounded-full hover:bg-gray-600 transition cursor-pointer"></div>
+                <div className="w-10 h-10 bg-gray-700 rounded-full hover:bg-gray-600 transition cursor-pointer"></div>
+                <div className="w-10 h-10 bg-gray-700 rounded-full hover:bg-gray-600 transition cursor-pointer"></div>
+              </div>
+              <p className="text-gray-500 text-xs">© 2025 Jumia. All rights reserved.</p>
+            </div>
           </div>
         </div>
       </footer>
