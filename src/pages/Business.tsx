@@ -45,42 +45,42 @@ const Business = () => {
       </nav>
 
       {/* Hero Section with Form */}
-      <div className="relative bg-jumia-dark overflow-hidden">
+      <div className="relative bg-[#1a1a2e] overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            className="w-full h-full object-cover opacity-30" 
+            className="w-full h-full object-cover" 
             src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
             alt="Warehouse logistics"
           />
-          <div className="absolute inset-0 bg-jumia-dark/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a2e] via-[#1a1a2e]/95 to-[#1a1a2e]/60"></div>
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="lg:grid lg:grid-cols-12 lg:gap-8">
             
             {/* Hero Copy */}
-            <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-7 lg:text-left flex flex-col justify-center">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/20 border border-primary text-primary text-xs font-bold tracking-wider uppercase mb-6 w-max">
+            <div className="md:max-w-2xl lg:col-span-7 lg:text-left flex flex-col justify-center">
+              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/20 border border-primary text-primary text-xs font-bold tracking-wider uppercase mb-6 w-max">
                 For Online Sellers & Businesses
               </div>
-              <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
+              <h1 className="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl leading-tight">
                 <span className="block">Scale your business</span>
-                <span className="block text-primary">with reliable logistics.</span>
+                <span className="block">with reliable logistics.</span>
               </h1>
-              <p className="mt-4 text-lg text-gray-300">
-                Stop worrying about delivery and focus on sales. From <strong>Cash on Delivery</strong> to <strong>Bulk Shipping</strong>, we provide the infrastructure trusted by thousands of Nigerian businesses.
+              <p className="mt-6 text-lg text-gray-300 leading-relaxed">
+                Stop worrying about delivery and focus on sales. From <strong className="text-white">Cash on Delivery</strong> to <strong className="text-white">Bulk Shipping</strong>, we provide the infrastructure trusted by thousands of Nigerian businesses.
               </p>
               
-              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <div className="flex items-center gap-2 text-gray-300 text-sm font-medium">
+              <div className="mt-8 flex flex-wrap gap-6">
+                <div className="flex items-center gap-2 text-white text-sm font-medium">
                   <Check className="w-5 h-5 text-green-400" />
                   <span>Nationwide Coverage</span>
                 </div>
-                <div className="flex items-center gap-2 text-gray-300 text-sm font-medium">
+                <div className="flex items-center gap-2 text-white text-sm font-medium">
                   <Check className="w-5 h-5 text-green-400" />
                   <span>Next-Day Remittance</span>
                 </div>
-                <div className="flex items-center gap-2 text-gray-300 text-sm font-medium">
+                <div className="flex items-center gap-2 text-white text-sm font-medium">
                   <Check className="w-5 h-5 text-green-400" />
                   <span>Real-Time Tracking</span>
                 </div>
