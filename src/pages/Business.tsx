@@ -48,11 +48,11 @@ const Business = () => {
       <div className="relative bg-jumia-dark overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            className="w-full h-full object-cover opacity-20" 
+            className="w-full h-full object-cover opacity-30" 
             src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
             alt="Warehouse logistics"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-jumia-dark via-jumia-dark to-transparent"></div>
+          <div className="absolute inset-0 bg-jumia-dark/80"></div>
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
