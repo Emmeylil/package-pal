@@ -10,8 +10,8 @@ const Hero = () => {
   const handleTrack = (e: React.FormEvent) => {
     e.preventDefault();
     if (trackingNumber.trim()) {
-      // Redirect to Jumia package tracker with the tracking number
-      window.open(`https://packagetracker-services.jumia.com/#/${trackingNumber}`, '_blank');
+      // Redirect to Jumia package tracker with the tracking number (same tab)
+      window.location.href = `https://packagetracker-services.jumia.com/#/${trackingNumber}`;
     } else {
       toast({
         title: "Please enter a tracking number",
