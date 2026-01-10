@@ -132,21 +132,21 @@ const Stations = () => {
   }
 
   return (
-    <section id="stations" className="bg-secondary py-16">
+    <section id="stations" className="bg-secondary py-8 sm:py-16">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-foreground mb-4">
+        <div className="text-center mb-6 sm:mb-10">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">
             Explore our network and pickup points
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
             With {stations.length}+ Pickup Points, dropping off a package is as easy as walking down the street.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Station List */}
-          <div className="lg:col-span-1 bg-card rounded-xl border border-border p-4">
-            <div className="relative mb-4">
+          <div className="lg:col-span-1 bg-card rounded-xl border border-border p-3 sm:p-4 order-2 lg:order-1">
+            <div className="relative mb-3 sm:mb-4">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
                 placeholder="Search stations..."
@@ -156,17 +156,17 @@ const Stations = () => {
               />
             </div>
             
-            <ScrollArea className="h-[400px]">
+            <ScrollArea className="h-[250px] sm:h-[350px] lg:h-[400px]">
               <div className="grid gap-2 pr-4">
                 {filteredStations.map((station, index) => (
                   <Button
                     key={index}
                     variant={selectedStation?.name === station.name ? "default" : "outline"}
-                    className="w-full justify-between text-left h-auto py-3"
+                    className="w-full justify-between text-left h-auto py-2 sm:py-3 text-xs sm:text-sm"
                     onClick={() => handleStationClick(station)}
                   >
                     <span className="truncate">{station.name}</span>
-                    <MapPin className="w-4 h-4 flex-shrink-0 ml-2" />
+                    <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0 ml-2" />
                   </Button>
                 ))}
               </div>
@@ -174,39 +174,40 @@ const Stations = () => {
           </div>
 
           {/* Map */}
-          <div className="lg:col-span-2 bg-card rounded-xl border border-border overflow-hidden">
+          <div className="lg:col-span-2 bg-card rounded-xl border border-border overflow-hidden order-1 lg:order-2">
             {selectedStation && (
               <>
-                <iframe
-                  title="Pickup Station Map"
-                  width="100%"
-                  height="400"
-                  frameBorder="0"
-                  style={{ border: 0 }}
-                  src={`https://www.openstreetmap.org/export/embed.html?bbox=${selectedStation.longitude - 0.02}%2C${selectedStation.latitude - 0.015}%2C${selectedStation.longitude + 0.02}%2C${selectedStation.latitude + 0.015}&layer=mapnik&marker=${selectedStation.latitude}%2C${selectedStation.longitude}`}
-                  allowFullScreen
-                />
-                <div className="p-4 border-t border-border">
-                  <h3 className="font-semibold text-foreground text-lg">{selectedStation.name}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">{selectedStation.address}, {selectedStation.state}</p>
+                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    title="Pickup Station Map"
+                    className="absolute inset-0 w-full h-full"
+                    frameBorder="0"
+                    style={{ border: 0 }}
+                    src={`https://www.openstreetmap.org/export/embed.html?bbox=${selectedStation.longitude - 0.02}%2C${selectedStation.latitude - 0.015}%2C${selectedStation.longitude + 0.02}%2C${selectedStation.latitude + 0.015}&layer=mapnik&marker=${selectedStation.latitude}%2C${selectedStation.longitude}`}
+                    allowFullScreen
+                  />
+                </div>
+                <div className="p-3 sm:p-4 border-t border-border">
+                  <h3 className="font-semibold text-foreground text-base sm:text-lg">{selectedStation.name}</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-1">{selectedStation.address}, {selectedStation.state}</p>
                   {selectedStation.landmark && (
-                    <p className="text-sm text-muted-foreground mt-1">
+                    <p className="text-xs sm:text-sm text-muted-foreground mt-1">
                       <span className="font-medium">Landmark:</span> {selectedStation.landmark}
                     </p>
                   )}
-                  <div className="flex flex-wrap gap-4 mt-3 text-sm">
+                  <div className="flex flex-wrap gap-2 sm:gap-4 mt-2 sm:mt-3 text-xs sm:text-sm">
                     <div className="flex items-center gap-1 text-muted-foreground">
-                      <Clock className="w-4 h-4" />
+                      <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                       <span>{selectedStation.week}</span>
                     </div>
                     <div className="flex items-center gap-1 text-muted-foreground">
-                      <Clock className="w-4 h-4" />
+                      <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                       <span>{selectedStation.weekend}</span>
                     </div>
                     {selectedStation.number && (
                       <div className="flex items-center gap-1 text-muted-foreground">
-                        <Phone className="w-4 h-4" />
-                        <span>{selectedStation.number}</span>
+                        <Phone className="w-3 h-3 sm:w-4 sm:h-4" />
+                        <span className="break-all">{selectedStation.number}</span>
                       </div>
                     )}
                   </div>
