@@ -23,14 +23,16 @@ export interface BusinessLead {
 }
 
 export const submitBusinessLead = async (lead: Omit<BusinessLead, 'submittedAt'>) => {
+  console.log("Attempting to submit lead:", lead);
   try {
     const docRef = await addDoc(collection(db, "business_leads"), {
       ...lead,
       submittedAt: new Date()
     });
+    console.log("Lead submitted successfully with ID:", docRef.id);
     return { success: true, id: docRef.id };
   } catch (error) {
-    console.error("Error submitting lead:", error);
+    console.error("Error submitting lead to Firebase:", error);
     throw error;
   }
 };
