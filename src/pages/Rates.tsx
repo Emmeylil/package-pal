@@ -14,34 +14,34 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // Zone-based rate data
 const ratesData = [
-  { departure: "Zone 1", arrival: "Zone 1", small: "₦1,400", medium: "₦3,600", large: "₦5,800", time: "1 - 2" },
-  { departure: "Zone 1", arrival: "Zone 2", small: "₦1,400", medium: "₦3,800", large: "₦6,000", time: "2 - 4" },
-  { departure: "Zone 1", arrival: "Zone 3", small: "₦1,700", medium: "₦5,000", large: "₦15,000", time: "3 - 7" },
-  { departure: "Zone 1", arrival: "Zone 4", small: "₦1,400", medium: "₦3,500", large: "₦15,000", time: "4 - 9" },
-  { departure: "Zone 1", arrival: "Zone 5", small: "₦1,600", medium: "₦7,000", large: "₦22,000", time: "3 - 9" },
-  { departure: "Zone 1", arrival: "Zone 6", small: "₦1,900", medium: "₦7,100", large: "₦26,000", time: "8 - 9" },
-  { departure: "Zone 1", arrival: "Zone 7", small: "₦1,800", medium: "₦7,800", large: "₦30,000", time: "4 - 9" },
-  { departure: "Zone 2", arrival: "Zone 2", small: "₦2,200", medium: "₦3,800", large: "₦6,000", time: "5 - 7" },
-  { departure: "Zone 2", arrival: "Zone 3", small: "₦2,600", medium: "₦5,700", large: "₦18,000", time: "7 - 10" },
-  { departure: "Zone 2", arrival: "Zone 4", small: "₦2,100", medium: "₦3,600", large: "₦18,000", time: "8 - 13" },
-  { departure: "Zone 2", arrival: "Zone 5", small: "₦2,500", medium: "₦7,000", large: "₦25,000", time: "7 - 13" },
-  { departure: "Zone 2", arrival: "Zone 6", small: "₦2,800", medium: "₦7,500", large: "₦26,000", time: "12 - 13" },
-  { departure: "Zone 2", arrival: "Zone 7", small: "₦2,900", medium: "₦8,500", large: "₦30,000", time: "8 - 13" },
-  { departure: "Zone 3", arrival: "Zone 3", small: "₦3,000", medium: "₦7,000", large: "₦20,000", time: "7 - 10" },
-  { departure: "Zone 3", arrival: "Zone 4", small: "₦2,500", medium: "₦5,500", large: "₦22,000", time: "12 - 17" },
-  { departure: "Zone 3", arrival: "Zone 5", small: "₦3,000", medium: "₦9,000", large: "₦25,000", time: "8 - 14" },
-  { departure: "Zone 3", arrival: "Zone 6", small: "₦3,500", medium: "₦9,000", large: "₦30,000", time: "16 - 17" },
-  { departure: "Zone 3", arrival: "Zone 7", small: "₦3,300", medium: "₦10,000", large: "₦30,000", time: "12 - 17" },
-  { departure: "Zone 4", arrival: "Zone 4", small: "₦2,100", medium: "₦4,000", large: "₦16,000", time: "10 - 12" },
-  { departure: "Zone 4", arrival: "Zone 5", small: "₦2,500", medium: "₦7,500", large: "₦23,000", time: "8 - 12" },
-  { departure: "Zone 4", arrival: "Zone 6", small: "₦2,900", medium: "₦7,500", large: "₦30,000", time: "16 - 17" },
-  { departure: "Zone 4", arrival: "Zone 7", small: "₦2,800", medium: "₦8,000", large: "₦30,000", time: "12 - 17" },
-  { departure: "Zone 5", arrival: "Zone 5", small: "₦2,900", medium: "₦10,000", large: "₦26,000", time: "12 - 14" },
-  { departure: "Zone 5", arrival: "Zone 6", small: "₦3,500", medium: "₦11,000", large: "₦30,000", time: "8 - 17" },
-  { departure: "Zone 5", arrival: "Zone 7", small: "₦3,500", medium: "₦11,000", large: "₦30,000", time: "16 - 17" },
-  { departure: "Zone 6", arrival: "Zone 6", small: "₦3,500", medium: "₦11,000", large: "₦30,000", time: "14 - 16" },
-  { departure: "Zone 6", arrival: "Zone 7", small: "₦3,500", medium: "₦11,000", large: "₦35,000", time: "12 - 17" },
-  { departure: "Zone 7", arrival: "Zone 7", small: "₦3,500", medium: "₦12,000", large: "₦35,000", time: "16 - 18" },
+  { departure: "Zone 1", arrival: "Zone 1", small: "₦1,400", medium: "₦3,600", large: "₦5,800", time: "1-2 Business Days" },
+  { departure: "Zone 1", arrival: "Zone 2", small: "₦1,400", medium: "₦3,800", large: "₦6,000", time: "2-4 Business Days" },
+  { departure: "Zone 1", arrival: "Zone 3", small: "₦1,700", medium: "₦5,000", large: "₦15,000", time: "3-7 Business Days" },
+  { departure: "Zone 1", arrival: "Zone 4", small: "₦1,400", medium: "₦3,500", large: "₦15,000", time: "4-9 Business Days" },
+  { departure: "Zone 1", arrival: "Zone 5", small: "₦1,600", medium: "₦7,000", large: "₦22,000", time: "3-9 Business Days" },
+  { departure: "Zone 1", arrival: "Zone 6", small: "₦1,900", medium: "₦7,100", large: "₦26,000", time: "8-9 Business Days" },
+  { departure: "Zone 1", arrival: "Zone 7", small: "₦1,800", medium: "₦7,800", large: "₦30,000", time: "4-9 Business Days" },
+  { departure: "Zone 2", arrival: "Zone 2", small: "₦2,200", medium: "₦3,800", large: "₦6,000", time: "5-7 Business Days" },
+  { departure: "Zone 2", arrival: "Zone 3", small: "₦2,600", medium: "₦5,700", large: "₦18,000", time: "7-10 Business Days" },
+  { departure: "Zone 2", arrival: "Zone 4", small: "₦2,100", medium: "₦3,600", large: "₦18,000", time: "8-13 Business Days" },
+  { departure: "Zone 2", arrival: "Zone 5", small: "₦2,500", medium: "₦7,000", large: "₦25,000", time: "7-13 Business Days" },
+  { departure: "Zone 2", arrival: "Zone 6", small: "₦2,800", medium: "₦7,500", large: "₦26,000", time: "12-13 Business Days" },
+  { departure: "Zone 2", arrival: "Zone 7", small: "₦2,900", medium: "₦8,500", large: "₦30,000", time: "8-13 Business Days" },
+  { departure: "Zone 3", arrival: "Zone 3", small: "₦3,000", medium: "₦7,000", large: "₦20,000", time: "7-10 Business Days" },
+  { departure: "Zone 3", arrival: "Zone 4", small: "₦2,500", medium: "₦5,500", large: "₦22,000", time: "12-17 Business Days" },
+  { departure: "Zone 3", arrival: "Zone 5", small: "₦3,000", medium: "₦9,000", large: "₦25,000", time: "8-14 Business Days" },
+  { departure: "Zone 3", arrival: "Zone 6", small: "₦3,500", medium: "₦9,000", large: "₦30,000", time: "16-17 Business Days" },
+  { departure: "Zone 3", arrival: "Zone 7", small: "₦3,300", medium: "₦10,000", large: "₦30,000", time: "12-17 Business Days" },
+  { departure: "Zone 4", arrival: "Zone 4", small: "₦2,100", medium: "₦4,000", large: "₦16,000", time: "10-12 Business Days" },
+  { departure: "Zone 4", arrival: "Zone 5", small: "₦2,500", medium: "₦7,500", large: "₦23,000", time: "8-12 Business Days" },
+  { departure: "Zone 4", arrival: "Zone 6", small: "₦2,900", medium: "₦7,500", large: "₦30,000", time: "16-17 Business Days" },
+  { departure: "Zone 4", arrival: "Zone 7", small: "₦2,800", medium: "₦8,000", large: "₦30,000", time: "12-17 Business Days" },
+  { departure: "Zone 5", arrival: "Zone 5", small: "₦2,900", medium: "₦10,000", large: "₦26,000", time: "12-14 Business Days" },
+  { departure: "Zone 5", arrival: "Zone 6", small: "₦3,500", medium: "₦11,000", large: "₦30,000", time: "8-17 Business Days" },
+  { departure: "Zone 5", arrival: "Zone 7", small: "₦3,500", medium: "₦11,000", large: "₦30,000", time: "16-17 Business Days" },
+  { departure: "Zone 6", arrival: "Zone 6", small: "₦3,500", medium: "₦11,000", large: "₦30,000", time: "14-16 Business Days" },
+  { departure: "Zone 6", arrival: "Zone 7", small: "₦3,500", medium: "₦11,000", large: "₦35,000", time: "12-17 Business Days" },
+  { departure: "Zone 7", arrival: "Zone 7", small: "₦3,500", medium: "₦12,000", large: "₦35,000", time: "16-18 Business Days" },
 ];
 
 // Zone localities data
@@ -299,9 +299,9 @@ const Rates = () => {
               <h3 className="text-lg font-bold text-foreground mb-4">Important Notes</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>• All prices include VAT</li>
-                <li>• Delivery times are estimates in business days</li>
+                <li>• Delivery times are estimates in <strong>business/working days</strong></li>
                 <li>• Oversized or overweight packages may incur additional charges</li>
-                <li>• Cash on Delivery (COD) available for select routes</li>
+                <li>• Cash on Delivery (COD) available for B2C customers on select routes</li>
                 <li>• Insurance available for high-value items</li>
               </ul>
             </div>
@@ -312,10 +312,10 @@ const Rates = () => {
               </p>
               <div className="space-y-2 text-sm">
                 <p className="text-muted-foreground">
-                  <span className="font-medium text-foreground">Phone:</span> 01 888 1234
+                  <span className="font-medium text-foreground">Phone:</span> 02018881106
                 </p>
                 <p className="text-muted-foreground">
-                  <span className="font-medium text-foreground">Email:</span> support@jumiadelivery.com
+                  <span className="font-medium text-foreground">Email:</span> jumiadelivery.ng@jumia.com
                 </p>
                 <p className="text-muted-foreground">
                   <span className="font-medium text-foreground">Hours:</span> Mon-Sat, 8AM - 6PM

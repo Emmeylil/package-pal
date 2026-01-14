@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 
 const Pricing = () => {
   const routes = [
-    { from: "Lagos (Zone 1)", to: "Lagos (Zone 1)", time: "1-2 Days", price: "₦1,400" },
-    { from: "Lagos (Zone 1)", to: "Sagamu (Zone 2)", time: "2-4 Days", price: "₦1,400" },
-    { from: "Lagos (Zone 1)", to: "Ibadan (Zone 3)", time: "3-7 Days", price: "₦1,700" },
-    { from: "Lagos (Zone 1)", to: "Abuja (Zone 3)", time: "3-7 Days", price: "₦1,700" },
-    { from: "Lagos (Zone 1)", to: "Port Harcourt (Zone 3)", time: "3-7 Days", price: "₦1,700" },
-    { from: "Lagos (Zone 1)", to: "Enugu (Zone 5)", time: "3-9 Days", price: "₦1,600" },
-    { from: "Lagos (Zone 1)", to: "Kano (Zone 6)", time: "8-9 Days", price: "₦1,900" },
-    { from: "Lagos (Zone 1)", to: "Warri (Zone 7)", time: "4-9 Days", price: "₦1,800" },
+    { from: "Lagos (Zone 1)", to: "Lagos (Zone 1)", time: "1-2 Business Days", price: "₦1,400" },
+    { from: "Lagos (Zone 1)", to: "Sagamu (Zone 2)", time: "2-4 Business Days", price: "₦1,400" },
+    { from: "Lagos (Zone 1)", to: "Ibadan (Zone 3)", time: "3-7 Business Days", price: "₦1,700" },
+    { from: "Lagos (Zone 1)", to: "Abuja (Zone 3)", time: "3-7 Business Days", price: "₦1,700" },
+    { from: "Lagos (Zone 1)", to: "Port Harcourt (Zone 3)", time: "3-7 Business Days", price: "₦1,700" },
+    { from: "Lagos (Zone 1)", to: "Enugu (Zone 5)", time: "3-9 Business Days", price: "₦1,600" },
+    { from: "Lagos (Zone 1)", to: "Kano (Zone 6)", time: "8-9 Business Days", price: "₦1,900" },
+    { from: "Lagos (Zone 1)", to: "Warri (Zone 7)", time: "4-9 Business Days", price: "₦1,800" },
   ];
 
   return (

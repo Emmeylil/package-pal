@@ -1,19 +1,50 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
-import { Check, Banknote, Layers, Clock, ExternalLink, Shield, Palette } from "lucide-react";
+import { Check, Banknote, Layers, Clock, ExternalLink, Shield, Palette, Loader2 } from "lucide-react";
 import jumiaLogo from "@/assets/jumia-delivery-logo.jpg";
+import { submitBusinessLead } from "@/lib/firebase";
 
 const Business = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    businessName: "",
+    email: "",
+    phone: "",
+    monthlyPackages: ""
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Request Submitted!",
-      description: "Our business team will contact you within 24 hours.",
-    });
+    
+    if (!formData.businessName || !formData.email || !formData.phone || !formData.monthlyPackages) {
+      toast({
+        title: "Please fill all fields",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      await submitBusinessLead(formData);
+      toast({
+        title: "Request Submitted!",
+        description: "Our business team will contact you within 24 hours.",
+      });
+      setFormData({ businessName: "", email: "", phone: "", monthlyPackages: "" });
+    } catch (error) {
+      toast({
+        title: "Submission Failed",
+        description: "Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -31,7 +62,6 @@ const Business = () => {
               <Link to="/" className="text-muted-foreground hover:text-primary transition">Personal (C2C)</Link>
               <span className="text-foreground font-bold border-b-2 border-primary">Business (B2C)</span>
               <a href="#features" className="text-muted-foreground hover:text-primary transition">Features</a>
-              <a href="#integration" className="text-muted-foreground hover:text-primary transition">API & Integration</a>
             </div>
             <div className="flex items-center gap-4">
               <a href="#" className="text-sm font-medium text-muted-foreground hover:text-primary">Login</a>
@@ -99,29 +129,52 @@ const Business = () => {
                       type="text" 
                       placeholder="Business / Store Name" 
                       className="w-full px-4 py-3"
+                      value={formData.businessName}
+                      onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
+                      disabled={isSubmitting}
                     />
                     <Input 
                       type="email" 
                       placeholder="Email Address" 
                       className="w-full px-4 py-3"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      disabled={isSubmitting}
                     />
                     <Input 
                       type="tel" 
                       placeholder="Phone Number" 
                       className="w-full px-4 py-3"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      disabled={isSubmitting}
                     />
                     <select 
                       className="block w-full px-4 py-3 border border-input rounded-md text-muted-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                      value={formData.monthlyPackages}
+                      onChange={(e) => setFormData({ ...formData, monthlyPackages: e.target.value })}
+                      disabled={isSubmitting}
                     >
-                      <option value="" disabled selected>Monthly Packages (Estimate)</option>
+                      <option value="" disabled>Monthly Packages (Estimate)</option>
                       <option value="0-50">0 - 50 packages</option>
                       <option value="51-200">51 - 200 packages</option>
                       <option value="201-1000">201 - 1,000 packages</option>
                       <option value="1000+">1,000+ packages</option>
                     </select>
                     <div className="pt-2">
-                      <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold py-3">
-                        Request Account
+                      <Button 
+                        type="submit" 
+                        className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold py-3"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                            Submitting...
+                          </>
+                        ) : (
+                          "Request Account"
+                        )}
                       </Button>
                     </div>
                     <p className="text-xs text-center text-muted-foreground mt-2">
@@ -210,58 +263,6 @@ const Business = () => {
         </div>
       </div>
 
-      {/* Integration Section */}
-      <div id="integration" className="bg-[#1a1a2e] py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="text-gray-400 font-bold uppercase tracking-wider text-xs">For Developers & Tech Teams</span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-primary mt-3 mb-6">Seamless API Integration</h2>
-              <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                Connect your e-commerce store directly to Jumia Delivery. Automate order creation, retrieve shipping rates, and fetch tracking updates without leaving your system.
-              </p>
-              <ul className="space-y-4 mb-10">
-                <li className="flex items-center gap-3 text-white">
-                  <Check className="w-5 h-5 text-primary" />
-                  <span className="font-medium">RESTful API Architecture</span>
-                </li>
-                <li className="flex items-center gap-3 text-white">
-                  <Check className="w-5 h-5 text-primary" />
-                  <span className="font-medium">Webhooks for Delivery Status</span>
-                </li>
-                <li className="flex items-center gap-3 text-white">
-                  <Check className="w-5 h-5 text-primary" />
-                  <span className="font-medium">Sandbox Environment for Testing</span>
-                </li>
-              </ul>
-              <a href="#" className="inline-block text-white border border-gray-600 px-8 py-3 rounded font-medium hover:bg-white/5 transition">
-                View API Documentation
-              </a>
-            </div>
-            <div className="bg-[#0d0d1a] rounded-lg p-6 font-mono text-sm shadow-2xl border border-gray-800">
-              <div className="flex gap-2 mb-6">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-              </div>
-              <div className="text-gray-500 mb-2"># Create a shipment via API</div>
-              <div className="text-primary mb-2">POST <span className="text-gray-300">/api/v1/shipments</span></div>
-              <div className="text-gray-300">{"{"}</div>
-              <div className="text-gray-300 pl-4">"recipient": {"{"}</div>
-              <div className="text-primary pl-8">"name": <span className="text-green-400">"Ibrahim Musa"</span>,</div>
-              <div className="text-primary pl-8">"phone": <span className="text-green-400">"+23480..."</span>,</div>
-              <div className="text-primary pl-8">"city": <span className="text-green-400">"Lagos"</span></div>
-              <div className="text-gray-300 pl-4">{"}"},</div>
-              <div className="text-gray-300 pl-4">"package": {"{"}</div>
-              <div className="text-primary pl-8">"weight": <span className="text-purple-400">2.5</span>,</div>
-              <div className="text-primary pl-8">"cod_amount": <span className="text-purple-400">15000</span></div>
-              <div className="text-gray-300 pl-4">{"}"}</div>
-              <div className="text-gray-300">{"}"}</div>
-              <div className="mt-6 text-gray-400">Status: <span className="text-green-400">201 Created</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Stats Section */}
       <div className="py-16 bg-primary/10">
@@ -300,7 +301,6 @@ const Business = () => {
               <h3 className="text-gray-400 font-bold mb-4 uppercase text-xs tracking-wider">Business Solutions</h3>
               <ul className="space-y-3 text-sm">
                 <li><a href="#" className="text-gray-500 hover:text-gray-300 transition">Rate Card</a></li>
-                <li><a href="#" className="text-gray-500 hover:text-gray-300 transition">API Docs</a></li>
                 <li><a href="#" className="text-gray-500 hover:text-gray-300 transition">Bulk Shipping Tool</a></li>
               </ul>
             </div>
