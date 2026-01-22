@@ -84,24 +84,24 @@ const zonesData = [
 ];
 
 const packageSizes = [
-  {
-    name: "Small Package",
-    dimensions: "60x40x20 cm",
-    weight: "0-5kg",
+  { 
+    name: "Small Package", 
+    dimensions: "60x40x20 cm", 
+    weight: "0-5kg", 
     examples: "Phones, shirts, books, accessories",
     icon: "📦"
   },
-  {
-    name: "Medium Package",
-    dimensions: "80x60x40 cm",
-    weight: "5-15kg",
+  { 
+    name: "Medium Package", 
+    dimensions: "80x60x40 cm", 
+    weight: "5-15kg", 
     examples: "Blenders, shoes, laptops, small electronics",
     icon: "📦"
   },
-  {
-    name: "Large Appliances",
-    dimensions: "140x80x60 cm",
-    weight: "15-35kg",
+  { 
+    name: "Large Appliances", 
+    dimensions: "140x80x60 cm", 
+    weight: "15-35kg", 
     examples: "Microwaves, TVs, bulk items, furniture",
     icon: "📦"
   },
@@ -153,190 +153,188 @@ const Rates = () => {
       {/* Main Tabs for Rates and Zones */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-foreground text-center mb-8">Delivery Rates by Route</h2>
+          <Tabs defaultValue="rates" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 mb-8 max-w-md mx-auto">
+              <TabsTrigger value="rates" className="text-base font-semibold">
+                <Package className="h-4 w-4 mr-2" />
+                Price List
+              </TabsTrigger>
+              <TabsTrigger value="zones" className="text-base font-semibold">
+                <MapPin className="h-4 w-4 mr-2" />
+                Delivery Zones
+              </TabsTrigger>
+            </TabsList>
 
-          {/* Search Filters */}
-          <div className="bg-card rounded-xl p-6 mb-8 border border-border">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input
-                  placeholder="Search origin city..."
-                  value={searchFrom}
-                  onChange={(e) => setSearchFrom(e.target.value)}
-                  className="pl-10"
-                />
+            {/* Rates Tab Content */}
+            <TabsContent value="rates">
+              {/* Package Sizes */}
+              <div className="bg-card rounded-xl p-6 mb-8 border border-border">
+                <h2 className="text-xl font-bold text-foreground mb-6">Package Size Guide</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {packageSizes.map((pkg, index) => (
+                    <div key={index} className="bg-secondary rounded-lg p-4 border border-border">
+                      <div className="flex items-center mb-3">
+                        <div className={`w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-3`}>
+                          <Package className="h-6 w-6 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-foreground text-sm">{pkg.name}</h3>
+                          <p className="text-xs text-muted-foreground">{pkg.weight}</p>
+                        </div>
+                      </div>
+                      <div className="text-xs text-muted-foreground space-y-1">
+                        <p><span className="font-medium text-foreground">Dimensions:</span> {pkg.dimensions}</p>
+                        <p><span className="font-medium text-foreground">Examples:</span> {pkg.examples}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input
-                  placeholder="Search destination city..."
-                  value={searchTo}
-                  onChange={(e) => setSearchTo(e.target.value)}
-                  className="pl-10"
-                />
-              </div>
-            </div>
-          </div>
 
-          <Tabs defaultValue="all" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 md:grid-cols-6 mb-6">
-              <TabsTrigger value="all">All Routes</TabsTrigger>
-              {originCities.slice(0, 5).map((city) => (
-                <TabsTrigger key={city} value={city}>{city}</TabsTrigger>
-              ))}
-              <Tabs defaultValue="rates" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 mb-8 max-w-md mx-auto">
-                  <TabsTrigger value="rates" className="text-base font-semibold">
-                    <Package className="h-4 w-4 mr-2" />
-                    Price List
-                  </TabsTrigger>
-                  <TabsTrigger value="zones" className="text-base font-semibold">
-                    <MapPin className="h-4 w-4 mr-2" />
-                    Delivery Zones
-                  </TabsTrigger>
+              {/* Search Filters */}
+              <div className="bg-card rounded-xl p-6 mb-8 border border-border">
+                <h3 className="font-semibold text-foreground mb-4">Search Routes</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Input
+                      placeholder="Search departure zone..."
+                      value={searchFrom}
+                      onChange={(e) => setSearchFrom(e.target.value)}
+                      className="pl-10"
+                    />
+                  </div>
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Input
+                      placeholder="Search arrival zone..."
+                      value={searchTo}
+                      onChange={(e) => setSearchTo(e.target.value)}
+                      className="pl-10"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Zone-based Tabs */}
+              <Tabs defaultValue="all" className="w-full">
+                <TabsList className="flex flex-wrap gap-2 h-auto mb-6 bg-transparent justify-start">
+                  <TabsTrigger value="all" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">All Routes</TabsTrigger>
+                  {departureZones.map((zone) => (
+                    <TabsTrigger 
+                      key={zone} 
+                      value={zone}
+                      className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                    >
+                      {zone}
+                    </TabsTrigger>
+                  ))}
                 </TabsList>
 
-                {/* Rates Tab Content */}
-                <TabsContent value="rates">
-                  {/* Package Sizes */}
-                  <div className="bg-card rounded-xl p-6 mb-8 border border-border">
-                    <h2 className="text-xl font-bold text-foreground mb-6">Package Size Guide</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      {packageSizes.map((pkg, index) => (
-                        <div key={index} className="bg-secondary rounded-lg p-4 border border-border">
-                          <div className="flex items-center mb-3">
-                            <div className={`w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-3`}>
-                              <Package className="h-6 w-6 text-primary" />
-                            </div>
-                            <div>
-                              <h3 className="font-bold text-foreground text-sm">{pkg.name}</h3>
-                              <p className="text-xs text-muted-foreground">{pkg.weight}</p>
-                            </div>
-                          </div>
-                          <div className="text-xs text-muted-foreground space-y-1">
-                            <p><span className="font-medium text-foreground">Dimensions:</span> {pkg.dimensions}</p>
-                            <p><span className="font-medium text-foreground">Examples:</span> {pkg.examples}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Search Filters */}
-                  <div className="bg-card rounded-xl p-6 mb-8 border border-border">
-                    <h3 className="font-semibold text-foreground mb-4">Search Routes</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="relative">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input
-                          placeholder="Search departure zone..."
-                          value={searchFrom}
-                          onChange={(e) => setSearchFrom(e.target.value)}
-                          className="pl-10"
-                        />
-                      </div>
-                      <div className="relative">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                        <Input
-                          placeholder="Search arrival zone..."
-                          value={searchTo}
-                          onChange={(e) => setSearchTo(e.target.value)}
-                          className="pl-10"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Zone-based Tabs */}
-                  <Tabs defaultValue="all" className="w-full">
-                    <TabsList className="flex flex-wrap gap-2 h-auto mb-6 bg-transparent justify-start">
-                      <TabsTrigger value="all" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">All Routes</TabsTrigger>
-                      {departureZones.map((zone) => (
-                        <TabsTrigger
-                          key={zone}
-                          value={zone}
-                          className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-                        >
-                          {zone}
-                        </TabsTrigger>
-                      ))}
-                    </TabsList>
-
-                    <TabsContent value="all">
-                      <RateTable rates={filteredRates} />
-                    </TabsContent>
-
-                    {departureZones.map((zone) => (
-                      <TabsContent key={zone} value={zone}>
-                        <RateTable
-                          rates={filteredRates.filter((r) => r.departure === zone)}
-                        />
-                      </TabsContent>
-                    ))}
-                  </Tabs>
+                <TabsContent value="all">
+                  <RateTable rates={filteredRates} />
                 </TabsContent>
 
-                {originCities.map((city) => (
-                  <TabsContent key={city} value={city}>
-                    <RateTable
-                      rates={filteredRates.filter((r) => r.from === city)}
+                {departureZones.map((zone) => (
+                  <TabsContent key={zone} value={zone}>
+                    <RateTable 
+                      rates={filteredRates.filter((r) => r.departure === zone)} 
                     />
                   </TabsContent>
                 ))}
               </Tabs>
-            </div>
-          </section>
+            </TabsContent>
 
-          {/* Additional Info */}
-          <section className="py-12 bg-card">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-secondary rounded-xl p-6 border border-border">
-                  <h3 className="text-lg font-bold text-foreground mb-4">Important Notes</h3>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• All prices include VAT</li>
-                    <li>• Delivery times are estimates in <strong>business/working days</strong></li>
-                    <li>• Oversized or overweight packages may incur additional charges</li>
-<<<<<<< HEAD
-                <li>• Cash on Delivery (COD) available for select routes</li>
-                <li>• Insurance available</li>
-=======
+            {/* Zones Tab Content */}
+            <TabsContent value="zones">
+              <div className="bg-card rounded-xl p-6 border border-border mb-8">
+                <h2 className="text-2xl font-bold text-foreground mb-2">Delivery Zones</h2>
+                <p className="text-muted-foreground mb-6">
+                  Find your city or locality to know which zone you belong to. Pricing is based on the zone of the departure and arrival locations.
+                </p>
+                
+                <div className="space-y-4">
+                  {zonesData.map((zoneInfo) => (
+                    <div key={zoneInfo.zone} className="border border-border rounded-lg overflow-hidden">
+                      <div className={`px-4 py-3 ${zoneInfo.color} font-bold flex items-center`}>
+                        <MapPin className="h-4 w-4 mr-2" />
+                        {zoneInfo.zone}
+                      </div>
+                      <div className="p-4 bg-secondary/50">
+                        <div className="flex flex-wrap gap-2">
+                          {zoneInfo.localities.map((locality, index) => (
+                            <span 
+                              key={index} 
+                              className="bg-card px-3 py-1 rounded-full text-sm text-foreground border border-border"
+                            >
+                              {locality}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-primary/5 rounded-xl p-6 border border-primary/20">
+                <h3 className="font-bold text-foreground mb-2">How Zone Pricing Works</h3>
+                <ul className="text-sm text-muted-foreground space-y-2">
+                  <li>• Find your departure city in the zones above</li>
+                  <li>• Find your destination city in the zones above</li>
+                  <li>• Check the Price List tab for rates between those zones</li>
+                  <li>• Prices include VAT and are valid for standard deliveries</li>
+                </ul>
+              </div>
+            </TabsContent>
+          </Tabs>
+        </div>
+      </section>
+
+      {/* Additional Info */}
+      <section className="py-12 bg-card">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-secondary rounded-xl p-6 border border-border">
+              <h3 className="text-lg font-bold text-foreground mb-4">Important Notes</h3>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>• All prices include VAT</li>
+                <li>• Delivery times are estimates in <strong>business/working days</strong></li>
+                <li>• Oversized or overweight packages may incur additional charges</li>
                 <li>• Cash on Delivery (COD) available for B2C customers on select routes</li>
-                <li>• Insurance available</li>
->>>>>>> df3a2054a1615fbab372a4a05584c6d6da4b494d
-              </ul >
-            </div >
-  <div className="bg-secondary rounded-xl p-6 border border-border">
-    <h3 className="text-lg font-bold text-foreground mb-4">Need Help?</h3>
-    <p className="text-sm text-muted-foreground mb-4">
-      Can't find your route or need a custom quote for bulk shipments?
-    </p>
-    <div className="space-y-2 text-sm">
-      <p className="text-muted-foreground">
-        <span className="font-medium text-foreground">Phone:</span> 02018881106
-      </p>
-      <p className="text-muted-foreground">
-        <span className="font-medium text-foreground">Email:</span> jumiadelivery.ng@jumia.com
-      </p>
-      <p className="text-muted-foreground">
-        <span className="font-medium text-foreground">Hours:</span> Mon-Sat, 8AM - 6PM
-      </p>
-    </div>
-  </div>
-          </div >
-        </div >
-      </section >
+                <li>• Insurance available for high-value items</li>
+              </ul>
+            </div>
+            <div className="bg-secondary rounded-xl p-6 border border-border">
+              <h3 className="text-lg font-bold text-foreground mb-4">Need Help?</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Can't find your route or need a custom quote for bulk shipments?
+              </p>
+              <div className="space-y-2 text-sm">
+                <p className="text-muted-foreground">
+                  <span className="font-medium text-foreground">Phone:</span> 02018881106
+                </p>
+                <p className="text-muted-foreground">
+                  <span className="font-medium text-foreground">Email:</span> jumiadelivery.ng@jumia.com
+                </p>
+                <p className="text-muted-foreground">
+                  <span className="font-medium text-foreground">Hours:</span> Mon-Sat, 8AM - 6PM
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  {/* Footer */ }
-  < footer className = "bg-foreground text-card py-8" >
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p className="text-sm text-muted">
-        © 2025 Jumia Delivery. All rights reserved.
-      </p>
+      {/* Footer */}
+      <footer className="bg-foreground text-card py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-sm text-muted">
+            © 2025 Jumia Delivery. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
-      </footer >
-    </div >
   );
 };
 
