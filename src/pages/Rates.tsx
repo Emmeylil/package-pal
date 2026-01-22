@@ -57,24 +57,24 @@ const ratesData = [
 ];
 
 const packageSizes = [
-  { 
-    name: "Small Package", 
-    dimensions: "60x40x20 cm", 
-    weight: "0-5kg", 
+  {
+    name: "Small Package",
+    dimensions: "60x40x20 cm",
+    weight: "0-5kg",
     examples: "Phones, shirts, books, accessories",
     icon: "📦"
   },
-  { 
-    name: "Medium Package", 
-    dimensions: "80x60x40 cm", 
-    weight: "5-15kg", 
+  {
+    name: "Medium Package",
+    dimensions: "80x60x40 cm",
+    weight: "5-15kg",
     examples: "Blenders, shoes, laptops, small electronics",
     icon: "📦"
   },
-  { 
-    name: "Large Appliances", 
-    dimensions: "140x80x60 cm", 
-    weight: "15-35kg", 
+  {
+    name: "Large Appliances",
+    dimensions: "140x80x60 cm",
+    weight: "15-35kg",
     examples: "Microwaves, TVs, bulk items, furniture",
     icon: "📦"
   },
@@ -157,7 +157,7 @@ const Rates = () => {
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-foreground text-center mb-8">Delivery Rates by Route</h2>
-          
+
           {/* Search Filters */}
           <div className="bg-card rounded-xl p-6 mb-8 border border-border">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -196,8 +196,8 @@ const Rates = () => {
 
             {originCities.map((city) => (
               <TabsContent key={city} value={city}>
-                <RateTable 
-                  rates={filteredRates.filter((r) => r.from === city)} 
+                <RateTable
+                  rates={filteredRates.filter((r) => r.from === city)}
                 />
               </TabsContent>
             ))}
@@ -216,7 +216,7 @@ const Rates = () => {
                 <li>• Delivery times are estimates and may vary during peak seasons</li>
                 <li>• Oversized or overweight packages may incur additional charges</li>
                 <li>• Cash on Delivery (COD) available for select routes</li>
-                <li>• Insurance available for high-value items</li>
+                <li>• Insurance available</li>
               </ul>
             </div>
             <div className="bg-secondary rounded-xl p-6 border border-border">
