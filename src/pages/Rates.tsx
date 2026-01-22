@@ -84,24 +84,24 @@ const zonesData = [
 ];
 
 const packageSizes = [
-  { 
-    name: "Small Package", 
-    dimensions: "60x40x20 cm", 
-    weight: "0-5kg", 
+  {
+    name: "Small Package",
+    dimensions: "60x40x20 cm",
+    weight: "0-5kg",
     examples: "Phones, shirts, books, accessories",
     icon: "📦"
   },
-  { 
-    name: "Medium Package", 
-    dimensions: "80x60x40 cm", 
-    weight: "5-15kg", 
+  {
+    name: "Medium Package",
+    dimensions: "80x60x40 cm",
+    weight: "5-15kg",
     examples: "Blenders, shoes, laptops, small electronics",
     icon: "📦"
   },
-  { 
-    name: "Large Appliances", 
-    dimensions: "140x80x60 cm", 
-    weight: "15-35kg", 
+  {
+    name: "Large Appliances",
+    dimensions: "140x80x60 cm",
+    weight: "15-35kg",
     examples: "Microwaves, TVs, bulk items, furniture",
     icon: "📦"
   },
@@ -221,8 +221,8 @@ const Rates = () => {
                 <TabsList className="flex flex-wrap gap-2 h-auto mb-6 bg-transparent justify-start">
                   <TabsTrigger value="all" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">All Routes</TabsTrigger>
                   {departureZones.map((zone) => (
-                    <TabsTrigger 
-                      key={zone} 
+                    <TabsTrigger
+                      key={zone}
                       value={zone}
                       className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
                     >
@@ -237,8 +237,8 @@ const Rates = () => {
 
                 {departureZones.map((zone) => (
                   <TabsContent key={zone} value={zone}>
-                    <RateTable 
-                      rates={filteredRates.filter((r) => r.departure === zone)} 
+                    <RateTable
+                      rates={filteredRates.filter((r) => r.departure === zone)}
                     />
                   </TabsContent>
                 ))}
@@ -252,7 +252,7 @@ const Rates = () => {
                 <p className="text-muted-foreground mb-6">
                   Find your city or locality to know which zone you belong to. Pricing is based on the zone of the departure and arrival locations.
                 </p>
-                
+
                 <div className="space-y-4">
                   {zonesData.map((zoneInfo) => (
                     <div key={zoneInfo.zone} className="border border-border rounded-lg overflow-hidden">
@@ -263,8 +263,8 @@ const Rates = () => {
                       <div className="p-4 bg-secondary/50">
                         <div className="flex flex-wrap gap-2">
                           {zoneInfo.localities.map((locality, index) => (
-                            <span 
-                              key={index} 
+                            <span
+                              key={index}
                               className="bg-card px-3 py-1 rounded-full text-sm text-foreground border border-border"
                             >
                               {locality}
@@ -302,7 +302,7 @@ const Rates = () => {
                 <li>• Delivery times are estimates in <strong>business/working days</strong></li>
                 <li>• Oversized or overweight packages may incur additional charges</li>
                 <li>• Cash on Delivery (COD) available for B2C customers on select routes</li>
-                <li>• Insurance available for high-value items</li>
+                <li>• Insurance available</li>
               </ul>
             </div>
             <div className="bg-secondary rounded-xl p-6 border border-border">
