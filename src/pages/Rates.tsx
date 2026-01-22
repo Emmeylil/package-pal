@@ -351,7 +351,7 @@ const Rates = () => {
                 <li>• Insurance available</li>
 =======
                 <li>• Cash on Delivery (COD) available for B2C customers on select routes</li>
-                <li>• Insurance available for high-value items</li>
+                <li>• Insurance available</li>
 >>>>>>> df3a2054a1615fbab372a4a05584c6d6da4b494d
               </ul>
             </div>
