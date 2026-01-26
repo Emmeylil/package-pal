@@ -6,7 +6,7 @@ import Pricing from "@/components/Pricing";
 import Stations from "@/components/Stations";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
-import Footer from "@/components/Footer";
+// import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -19,7 +19,7 @@ const Index = () => {
       <Stations />
       <FAQ />
       <CTA />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
