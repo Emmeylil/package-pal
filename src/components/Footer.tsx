@@ -18,7 +18,7 @@ const Footer = () => {
           <h3 className="text-white font-bold mb-4 uppercase text-sm tracking-wider">Legal</h3>
           <ul className="space-y-2 text-sm">
             <li><a href="https://www.jumia.com.ng/sp-term-condition-jumia-delivery/" className="hover:text-white transition">Terms & Conditions</a></li>
-            <li><a href="#" className="hover:text-white transition">Privacy Notice</a></li>
+            <li><a href="https://www.jumia.com.ng/sp-privacy/" className="hover:text-white transition">Privacy Notice</a></li>
 
           </ul>
         </div>
