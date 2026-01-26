@@ -19,7 +19,7 @@ const Business = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.businessName || !formData.email || !formData.phone || !formData.monthlyPackages) {
       toast({
         title: "Please fill all fields",
@@ -76,17 +76,17 @@ const Business = () => {
       {/* Hero Section with Form */}
       <div className="relative bg-[#1a1a2e] overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            className="w-full h-full object-cover" 
-            src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+          <img
+            className="w-full h-full object-cover"
+            src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
             alt="Warehouse logistics"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a2e] via-[#1a1a2e]/95 to-[#1a1a2e]/60"></div>
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="lg:grid lg:grid-cols-12 lg:gap-8">
-            
+
             {/* Hero Copy */}
             <div className="md:max-w-2xl lg:col-span-7 lg:text-left flex flex-col justify-center">
               <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/20 border border-primary text-primary text-xs font-bold tracking-wider uppercase mb-6 w-max">
@@ -99,7 +99,7 @@ const Business = () => {
               <p className="mt-6 text-lg text-gray-300 leading-relaxed">
                 Stop worrying about delivery and focus on sales. From <strong className="text-white">Cash on Delivery</strong> to <strong className="text-white">Bulk Shipping</strong>, we provide the infrastructure trusted by thousands of Nigerian businesses.
               </p>
-              
+
               <div className="mt-8 flex flex-wrap gap-6">
                 <div className="flex items-center gap-2 text-white text-sm font-medium">
                   <Check className="w-5 h-5 text-green-400" />
@@ -125,31 +125,31 @@ const Business = () => {
                     <p className="text-sm text-muted-foreground">Sign up to view special business rates.</p>
                   </div>
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <Input 
-                      type="text" 
-                      placeholder="Business / Store Name" 
+                    <Input
+                      type="text"
+                      placeholder="Business / Store Name"
                       className="w-full px-4 py-3"
                       value={formData.businessName}
                       onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
                       disabled={isSubmitting}
                     />
-                    <Input 
-                      type="email" 
-                      placeholder="Email Address" 
+                    <Input
+                      type="email"
+                      placeholder="Email Address"
                       className="w-full px-4 py-3"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       disabled={isSubmitting}
                     />
-                    <Input 
-                      type="tel" 
-                      placeholder="Phone Number" 
+                    <Input
+                      type="tel"
+                      placeholder="Phone Number"
                       className="w-full px-4 py-3"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       disabled={isSubmitting}
                     />
-                    <select 
+                    <select
                       className="block w-full px-4 py-3 border border-input rounded-md text-muted-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                       value={formData.monthlyPackages}
                       onChange={(e) => setFormData({ ...formData, monthlyPackages: e.target.value })}
@@ -162,8 +162,8 @@ const Business = () => {
                       <option value="1000+">1,000+ packages</option>
                     </select>
                     <div className="pt-2">
-                      <Button 
-                        type="submit" 
+                      <Button
+                        type="submit"
                         className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold py-3"
                         disabled={isSubmitting}
                       >
@@ -203,7 +203,7 @@ const Business = () => {
 
           <div className="mt-16">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              
+
               {/* Feature 1 */}
               <div className="relative p-6 border border-border rounded-2xl bg-secondary hover:shadow-lg transition">
                 <div className="absolute top-6 right-6 text-muted-foreground/20">
@@ -265,7 +265,7 @@ const Business = () => {
 
 
       {/* Stats Section */}
-      <div className="py-16 bg-primary/10">
+      {/* <div className="py-16 bg-primary/10">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-foreground mb-12">Trusted by 10,000+ Nigerian Businesses</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -287,10 +287,10 @@ const Business = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Footer */}
-      <footer className="bg-[#1a1a2e] py-12">
+      {/* <footer className="bg-[#1a1a2e] py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
@@ -323,7 +323,7 @@ const Business = () => {
             </div>
           </div>
         </div>
-      </footer>
+      </footer> */}
     </div>
   );
 };
