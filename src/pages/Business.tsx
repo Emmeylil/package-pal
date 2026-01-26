@@ -263,67 +263,6 @@ const Business = () => {
         </div>
       </div>
 
-
-      {/* Stats Section */}
-      {/* <div className="py-16 bg-primary/10">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-foreground mb-12">Trusted by 10,000+ Nigerian Businesses</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <div className="text-4xl font-black text-primary mb-2">283+</div>
-              <div className="text-muted-foreground font-medium">Pickup Stations</div>
-            </div>
-            <div>
-              <div className="text-4xl font-black text-primary mb-2">107</div>
-              <div className="text-muted-foreground font-medium">Cities Covered</div>
-            </div>
-            <div>
-              <div className="text-4xl font-black text-primary mb-2">1M+</div>
-              <div className="text-muted-foreground font-medium">Packages Delivered</div>
-            </div>
-            <div>
-              <div className="text-4xl font-black text-primary mb-2">99.5%</div>
-              <div className="text-muted-foreground font-medium">Payment Reliability</div>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
-      {/* Footer */}
-      {/* <footer className="bg-[#1a1a2e] py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-gray-400 font-bold mb-4 uppercase text-xs tracking-wider">About Jumia Delivery</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">Helping businesses grow through reliable logistics infrastructure across Africa.</p>
-            </div>
-            <div>
-              <h3 className="text-gray-400 font-bold mb-4 uppercase text-xs tracking-wider">Business Solutions</h3>
-              <ul className="space-y-3 text-sm">
-                <li><a href="#" className="text-gray-500 hover:text-gray-300 transition">Rate Card</a></li>
-                <li><a href="#" className="text-gray-500 hover:text-gray-300 transition">Bulk Shipping Tool</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-gray-400 font-bold mb-4 uppercase text-xs tracking-wider">Support</h3>
-              <ul className="space-y-3 text-sm">
-                <li><a href="#" className="text-gray-500 hover:text-gray-300 transition">Help Center</a></li>
-                <li><a href="#" className="text-gray-500 hover:text-gray-300 transition">Contact Sales</a></li>
-                <li><a href="#" className="text-gray-500 hover:text-gray-300 transition">Report Issue</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-gray-400 font-bold mb-4 uppercase text-xs tracking-wider">Connect</h3>
-              <div className="flex space-x-3 mb-4">
-                <div className="w-10 h-10 bg-gray-700 rounded-full hover:bg-gray-600 transition cursor-pointer"></div>
-                <div className="w-10 h-10 bg-gray-700 rounded-full hover:bg-gray-600 transition cursor-pointer"></div>
-                <div className="w-10 h-10 bg-gray-700 rounded-full hover:bg-gray-600 transition cursor-pointer"></div>
-              </div>
-              <p className="text-gray-500 text-xs">© 2025 Jumia. All rights reserved.</p>
-            </div>
-          </div>
-        </div>
-      </footer> */}
     </div>
   );
 };
