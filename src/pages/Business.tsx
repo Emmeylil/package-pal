@@ -6,6 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Check, Banknote, Layers, Clock, ExternalLink, Shield, Palette, Loader2 } from "lucide-react";
 import jumiaLogo from "@/assets/jumia-delivery-logo.jpg";
 import { submitBusinessLead } from "@/lib/firebase";
+import Stations from "@/components/Stations";
 
 const Business = () => {
   const { toast } = useToast();
@@ -62,6 +63,7 @@ const Business = () => {
               <Link to="/" className="text-muted-foreground hover:text-primary transition">Personal (C2C)</Link>
               <span className="text-foreground font-bold border-b-2 border-primary">Business (B2C)</span>
               <a href="#features" className="text-muted-foreground hover:text-primary transition">Features</a>
+              <a href="#stations" className="text-muted-foreground hover:text-primary transition">Pickup Stations</a>
             </div>
             <div className="flex items-center gap-4">
               <a href="#" className="text-sm font-medium text-muted-foreground hover:text-primary">Login</a>
@@ -263,6 +265,8 @@ const Business = () => {
         </div>
       </div>
 
+      {/* Stations Section */}
+      <Stations />
     </div>
   );
 };

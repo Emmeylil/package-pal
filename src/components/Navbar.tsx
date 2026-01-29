@@ -17,7 +17,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center">
             <img src={jumiaLogo} alt="Jumia Delivery" className="h-10 object-contain" />
           </Link>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             <span className="text-foreground font-bold border-b-2 border-primary">Personal (C2C)</span>
@@ -25,16 +25,16 @@ const Navbar = () => {
             <Link to="/rates" className="text-muted-foreground hover:text-primary transition">Rates</Link>
             <a href="#stations" className="text-muted-foreground hover:text-primary transition">Pickup Stations</a>
           </div>
-          
+
           <div className="flex items-center gap-2">
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold shadow hidden sm:flex">
               Track Package
             </Button>
-            
+
             {/* Mobile Menu Button */}
-            <Button 
-              variant="ghost" 
-              size="icon" 
+            <Button
+              variant="ghost"
+              size="icon"
               className="md:hidden"
               onClick={toggleMenu}
               aria-label="Toggle menu"
@@ -44,7 +44,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-card border-t border-border">
@@ -53,22 +53,22 @@ const Navbar = () => {
               <span className="text-foreground font-bold border-l-4 border-primary pl-3 py-2">
                 Personal (C2C)
               </span>
-              <Link 
-                to="/business" 
+              <Link
+                to="/business"
                 className="text-muted-foreground hover:text-primary transition pl-3 py-2"
                 onClick={closeMenu}
               >
                 Business (B2C)
               </Link>
-              <Link 
-                to="/rates" 
+              <Link
+                to="/rates"
                 className="text-muted-foreground hover:text-primary transition pl-3 py-2"
                 onClick={closeMenu}
               >
                 Rates
               </Link>
-              <a 
-                href="#stations" 
+              <a
+                href="#stations"
                 className="text-muted-foreground hover:text-primary transition pl-3 py-2"
                 onClick={closeMenu}
               >
