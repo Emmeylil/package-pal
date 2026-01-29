@@ -7,7 +7,6 @@ import { Check, Banknote, Layers, Clock, ExternalLink, Shield, Palette, Loader2 
 import jumiaLogo from "@/assets/jumia-delivery-logo.jpg";
 import { submitBusinessLead } from "@/lib/firebase";
 import Stations from "@/components/Stations";
-import Footer from "@/components/Footer";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 
@@ -272,7 +271,6 @@ const Business = () => {
       <Stations />
       <FAQ />
       <CTA />
-      <Footer />
     </div>
   );
 };
