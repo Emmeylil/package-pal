@@ -7,6 +7,9 @@ import { Check, Banknote, Layers, Clock, ExternalLink, Shield, Palette, Loader2 
 import jumiaLogo from "@/assets/jumia-delivery-logo.jpg";
 import { submitBusinessLead } from "@/lib/firebase";
 import Stations from "@/components/Stations";
+import Footer from "@/components/Footer";
+import FAQ from "@/components/FAQ";
+import CTA from "@/components/CTA";
 
 const Business = () => {
   const { toast } = useToast();
@@ -49,7 +52,7 @@ const Business = () => {
   };
 
   return (
-    <div className="min-h-screen bg-secondary">
+    <div className="bg-secondary">
       {/* Navigation */}
       <nav className="bg-card shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -267,6 +270,9 @@ const Business = () => {
 
       {/* Stations Section */}
       <Stations />
+      <FAQ />
+      <CTA />
+      <Footer />
     </div>
   );
 };
